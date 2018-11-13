@@ -6,9 +6,11 @@ Created on Nov 9, 2018
 from builtins import int
 import sys;
 
-from PyQt5.Qt import QWidget, QApplication, QMainWindow
+from PyQt5.Qt import QWidget, QApplication, QMainWindow, QMessageBox,\
+    QErrorMessage
 from PyQt5.uic import loadUi
 from OOPFastenerCalcs import FastenerCalcs
+from sympy.core.exprtools import _isnumber
 
 
 class myWindwo(QMainWindow):
@@ -29,15 +31,20 @@ class myWindwo(QMainWindow):
         
     #handler
     def calculateSafetyMargin(self):
-        yieldStress = float(self.yieldStress.text());
-        nominalDiameter = float(self.nominalDiameter.text());
-        shearOne = float(self.shearOne.text());
-        shearTwo = float(self.shearTwo.text());
-        axial = float(self.axial.text());
-        safetyFactor =float(self.safetyFactor.text());
-   
-        x = FastenerCalcs(yieldStress, nominalDiameter, shearOne, shearTwo, axial, safetyFactor);
-        self.safetyMargin.setText(str(round(x.marginOfSafety(),2))); 
+        
+        try:
+            yieldStress = float(self.yieldStress.text());
+            nominalDiameter = float(self.nominalDiameter.text());
+            shearOne = float(self.shearOne.text());
+            shearTwo = float(self.shearTwo.text());
+            axial = float(self.axial.text());
+            safetyFactor =float(self.safetyFactor.text());
+        
+            x = FastenerCalcs(yieldStress, nominalDiameter, shearOne, shearTwo, axial, safetyFactor);
+            self.safetyMargin.setText(str(round(x.marginOfSafety(),2)));
+        except Exception as e:
+            self.errorDialog = QMessageBox();
+            self.errorDialog.warning(self, "Warning!!", str(e));
     
 
 app = QApplication(sys.argv);
