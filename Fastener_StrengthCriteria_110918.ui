@@ -14,14 +14,26 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QTabWidget" name="tabFastenerWidget">
     <property name="geometry">
      <rect>
       <x>-10</x>
       <y>0</y>
-      <width>641</width>
-      <height>621</height>
+      <width>501</width>
+      <height>562</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>641</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>3</width>
+      <height>0</height>
+     </size>
     </property>
     <property name="currentIndex">
      <number>0</number>
@@ -30,126 +42,11 @@
      <attribute name="title">
       <string>Tab 1</string>
      </attribute>
-     <widget class="QLineEdit" name="yieldStress">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>20</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="nominalDiameter">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>80</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="shearOne">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>130</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="shearTwo">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>170</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="safetyMargin">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>260</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>20</y>
-        <width>71</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Yield Stress</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>80</y>
-        <width>71</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>No. Diameter</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>130</y>
-        <width>71</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Shear Stress x</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>170</y>
-        <width>71</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Shear Stress y</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>260</y>
-        <width>71</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Safety Margin</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="calculateButton">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>20</y>
+        <x>20</x>
+        <y>210</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -158,33 +55,133 @@
        <string>PushButton</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="axial">
+     <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>200</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>200</y>
-        <width>71</width>
-        <height>16</height>
+        <x>260</x>
+        <y>40</y>
+        <width>201</width>
+        <height>221</height>
        </rect>
       </property>
       <property name="text">
-       <string>Axial</string>
+       <string/>
       </property>
+      <property name="pixmap">
+       <pixmap>tension_shear.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>208</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Safety Margin</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="safetyMargin"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>215</width>
+        <height>154</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Yield Stress</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>No. Diameter</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Shear Stress x</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Shear Stress y</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Axial</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>Safety Factor</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLineEdit" name="yieldStress"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="nominalDiameter"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="shearOne"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="shearTwo"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="axial"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="safetyFactor"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
       <string>Tab 2</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Page</string>
      </attribute>
     </widget>
    </widget>
@@ -198,6 +195,12 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFastenerCalcs">
+    <property name="title">
+     <string>FastenerCalcs</string>
+    </property>
+   </widget>
+   <addaction name="menuFastenerCalcs"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
