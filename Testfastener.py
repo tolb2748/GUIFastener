@@ -9,7 +9,7 @@ import sys;
 from PyQt5.Qt import QWidget, QApplication, QMainWindow, QMessageBox,\
     QErrorMessage
 from PyQt5.uic import loadUi
-from OOPFastenerCalcs import FastenerCalcs
+from OOPFastenerCalcs import FastenerCalcs, ShearTearOut, BoltBearing
 from sympy.core.exprtools import _isnumber
 
 
@@ -28,10 +28,11 @@ class myWindwo(QMainWindow):
         
         #button click event
         self.calculateButton.clicked.connect(self.calculateSafetyMargin);
-        
+        self.calculateShearMargin.clicked.connect(self.calculateShearSafetyMargin);
+        self.calculateBoltBearing.clicked.connect(self.calculateBearingSafetyMargin);
     #handler
     def calculateSafetyMargin(self):
-        
+        #error check to see if numbers were put in
         try:
             yieldStress = float(self.yieldStress.text());
             nominalDiameter = float(self.nominalDiameter.text());
@@ -45,8 +46,46 @@ class myWindwo(QMainWindow):
         except Exception as e:
             self.errorDialog = QMessageBox();
             self.errorDialog.warning(self, "Warning!!", str(e));
+    ###################################################################################################################
+    def calculateShearSafetyMargin(self):
+        try:
+            shearStrength = float(self.shearStrength.text());
+            nominalDiameter = float(self.nominalDiameter_2.text());
+            e = float(self.e.text());
+            thickness = float(self.thickness.text());
+            shearOneComponent = float(self.shearOneComponent.text());
+            shearTwoComponent = float(self.shearTwoComponent.text());
+            safetyFactor2 = float(self.safetyFactor2.text());
+            
+            x= ShearTearOut(shearStrength, nominalDiameter, e, thickness, shearOneComponent, shearTwoComponent, safetyFactor2);
+            
+            self.shearSafetyMargin.setText(str(round(x.safetyMargin(),2)));
+                
+        except Exception as e:
+            self.errorDialog = QMessageBox();
+            self.errorDialog.warning(self, "Warning!!", str(e));
     
-
+    #################################################################################################################
+    def calculateBearingSafetyMargin(self):
+        
+        try:
+            bearingUpper = float(self.bearingUpper.text());
+            bearingLower = float(self.bearingLower.text());
+            nominalDiameter = float(self.nominalDiameter3.text());
+            e = float(self.e_2.text());
+            thickness = float(self.thickness2.text());
+            shearOne = float(self.shearOne2.text());
+            shearTwo = float(self.shearTwo2.text());
+            safetyFactor = float(self.safetyFactor3.text());
+            
+            x = BoltBearing(bearingUpper, bearingLower, nominalDiameter, e, thickness, shearOne, shearTwo, safetyFactor);
+            
+            self.bearingSafetyMargin.setText(str(round(x.safetyMargin(),2)));
+        
+        except Exception as e:
+            self.errorDialog = QMessageBox();
+            self.errorDialog.warning(self, "Warning!!", str(e));
+        
 app = QApplication(sys.argv);
 window = myWindwo();
 window.show();
