@@ -11,13 +11,19 @@ from PyQt5.Qt import QWidget, QApplication, QMainWindow, QMessageBox,\
 from PyQt5.uic import loadUi
 from OOPFastenerCalcs import FastenerCalcs, ShearTearOut, BoltBearing
 from sympy.core.exprtools import _isnumber
+import os #Used in Testing Script
 
+#runs the code at the command prompt
+#os.system("pyuic5 Fastener_StrengthCriteria_110918.ui -o Fastener_StrengthCriteria_110918.py")
 
-class myWindwo(QMainWindow):
+import Fastener_StrengthCriteria_110918;
+
+class myWindwo(QMainWindow, Fastener_StrengthCriteria_110918.Ui_MainWindow):
     def __init__(self):
         super().__init__();
+        self.setupUi(self);
         #Loads the interface
-        loadUi("Fastener_StrengthCriteria_110918.ui", self);
+        #loadUi(r"C:\Users\Brandon\Documents\RAYTHEON\PYTHON\PROJECTS\GUIFastener\Fastener_StrengthCriteria_110918.ui", self);
         
         #Rename Tabs
         self.tabFastenerWidget.setTabText(0, "TensionAndShear");
@@ -85,9 +91,12 @@ class myWindwo(QMainWindow):
         except Exception as e:
             self.errorDialog = QMessageBox();
             self.errorDialog.warning(self, "Warning!!", str(e));
-        
-app = QApplication(sys.argv);
-window = myWindwo();
-window.show();
-sys.exit(app.exec_());
+
+def main():        
+    app = QApplication(sys.argv);
+    window = myWindwo();
+    window.show();
+    sys.exit(app.exec_());
     
+if __name__ == '__main__':
+    main();
