@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>491</width>
-    <height>407</height>
+    <width>511</width>
+    <height>388</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -56,35 +56,38 @@ background-color: rgb(212, 212, 212);
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>Fastener Analysis</string>
      </attribute>
      <widget class="QPushButton" name="calculateButton">
       <property name="geometry">
        <rect>
         <x>20</x>
         <y>210</y>
-        <width>75</width>
+        <width>101</width>
         <height>23</height>
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Calculate Margin</string>
       </property>
      </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>40</y>
+        <y>20</y>
         <width>201</width>
-        <height>221</height>
+        <height>271</height>
        </rect>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>tension_shear.png</pixmap>
+       <pixmap resource="resource.qrc">:/images/tension_shear.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QWidget" name="layoutWidget">
@@ -196,19 +199,19 @@ background-color: rgb(212, 212, 212);
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Shear Tear Out</string>
      </attribute>
      <widget class="QPushButton" name="calculateShearMargin">
       <property name="geometry">
        <rect>
         <x>20</x>
         <y>220</y>
-        <width>75</width>
+        <width>101</width>
         <height>23</height>
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Calculate Margin</string>
       </property>
      </widget>
      <widget class="QWidget" name="layoutWidget">
@@ -315,22 +318,41 @@ background-color: rgb(212, 212, 212);
        </item>
       </layout>
      </widget>
+     <widget class="QLabel" name="label_25">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>30</y>
+        <width>221</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/images/ShearTearOut.PNG</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
-      <string>Page</string>
+      <string>Bolt Bearing</string>
      </attribute>
      <widget class="QPushButton" name="calculateBoltBearing">
       <property name="geometry">
        <rect>
         <x>20</x>
         <y>240</y>
-        <width>75</width>
+        <width>101</width>
         <height>23</height>
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Calculate Margin</string>
       </property>
      </widget>
      <widget class="QWidget" name="layoutWidget_2">
@@ -355,7 +377,7 @@ background-color: rgb(212, 212, 212);
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -447,6 +469,25 @@ background-color: rgb(212, 212, 212);
        </item>
       </layout>
      </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>30</y>
+        <width>221</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/images/BoltBearing.PNG</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -455,7 +496,7 @@ background-color: rgb(212, 212, 212);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>491</width>
+     <width>511</width>
      <height>21</height>
     </rect>
    </property>
@@ -468,6 +509,8 @@ background-color: rgb(212, 212, 212);
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

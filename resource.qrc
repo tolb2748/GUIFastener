@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/images">
+    <file>images.png</file>
+    <file>BoltBearing.PNG</file>
+    <file>ShearTearOut.PNG</file>
+    <file>tension_shear.png</file>
+  </qresource>
+  <qresource prefix="new">
+    <file>ShearTearOut.PNG</file>
+  </qresource>
+</RCC>

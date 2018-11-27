@@ -14,7 +14,8 @@ from sympy.core.exprtools import _isnumber
 import os #Used in Testing Script
 
 #runs the code at the command prompt
-#os.system("pyuic5 Fastener_StrengthCriteria_110918.ui -o Fastener_StrengthCriteria_110918.py")
+os.system("pyuic5 Fastener_StrengthCriteria_110918.ui -o Fastener_StrengthCriteria_110918.py")
+os.system("pyrcc5 resource.qrc -o resource_rc.py") # imports images to be used in executable
 
 import Fastener_StrengthCriteria_110918;
 
@@ -25,10 +26,7 @@ class myWindwo(QMainWindow, Fastener_StrengthCriteria_110918.Ui_MainWindow):
         #Loads the interface
         #loadUi(r"C:\Users\Brandon\Documents\RAYTHEON\PYTHON\PROJECTS\GUIFastener\Fastener_StrengthCriteria_110918.ui", self);
         
-        #Rename Tabs
-        self.tabFastenerWidget.setTabText(0, "TensionAndShear");
-        self.tabFastenerWidget.setTabText(1, "ShearTearOut");
-        self.tabFastenerWidget.setTabText(2, "BoltBearing");
+        #Set Value of Safety Factor
         self.safetyFactor.setText("1.15");
         self.safetyMargin.setReadOnly(True);
         
