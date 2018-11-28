@@ -1,0 +1,9 @@
+output.py
+*.spec
+.settings/
+__pycache__/
+build/
+dist/
+Images/
+.project
+.pydevproject
